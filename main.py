@@ -1,6 +1,11 @@
 import sys
 import os
      
+#colocar em diagrama de classe (ok)
+#criar relações através do codigo 
+#separar as classes em arquivos
+#procurar sobre o factyory no php (ok)
+
 def generate_php_class(uml):
 
     uml = uml.replace("@startuml", "").replace("@enduml", "").strip()
@@ -9,10 +14,13 @@ def generate_php_class(uml):
     lista_classe = []
     classe_atual = None
     corpo_classe = []
+#    classe_relationship = []
 
 
     for linha in uml.splitlines(): #percorrer a linha 
         linha = linha.strip()
+#        if linha == "<|--":
+ #           classe_relationship = []     
         if linha.lower().startswith("Class") or linha.startswith("class"):
             if classe_atual:
                 lista_classe.append((classe_atual, corpo_classe))
