@@ -1,6 +1,6 @@
-import os
-from parser.uml_parser import UMLParser
-from generator.php_generator import PHPGenerator
+from src.parser.parser import UMLParser
+from src.generate_class.generate import PHPGenerator
+from src.output.output import PHPfile
 
 uml_input = '''@startuml
 class Dummy {
@@ -10,14 +10,15 @@ class Dummy {
 @enduml'''
 
 parser = UMLParser()
+
 classes = parser.parse(uml_input)
 
 gerador = PHPGenerator()
+
 codigo_php = gerador.gerar_php(classes)
 
-output_file = "Dummy.php"
-with open(output_file, 'w') as f:
-    f.write(codigo_php)
+file = PHPfile()
 
-print(f"Arquivo gerado: {output_file}\n")
+saida = file.output(codigo_php)
+
 print(codigo_php)

@@ -1,6 +1,6 @@
 class PHPGenerator:
     def gerar_classe_php(self, classe):
-        php = f"<?php\nclass {classe.nome} {{\n"
+        php = f"<?php\nclass {classe.nome} \n{{\n"
 
         for _, nome in classe.atributos:
             php += f"    private ${nome};\n"
